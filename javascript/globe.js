@@ -1,10 +1,13 @@
-$(document).ready(function(){
+requirejs([
+        './LayerManager'],
+    function (LayerManager) {
 
     var wwd = new WorldWind.WorldWindow("canvasOne");
 
     //adding imagery layers
     wwd.addLayer(new WorldWind.BMNGOneImageLayer());
     wwd.addLayer(new WorldWind.BMNGLandsatLayer());
+    wwd.addLayer(new WorldWind.AtmosphereLayer());
 
     //coordinates, compass, controls
     wwd.addLayer(new WorldWind.CompassLayer());
@@ -32,7 +35,7 @@ $(document).ready(function(){
 
 
     // Displaying 3D shapes. Add a polygon
-    var polygonLayer = new WorldWind.RenderableLayer();
+    var polygonLayer = new WorldWind.RenderableLayer("Polygon");
     wwd.addLayer(polygonLayer);
 
     var polygonAttributes = new WorldWind.ShapeAttributes(null);
@@ -51,7 +54,7 @@ $(document).ready(function(){
     polygonLayer.addRenderable(polygon);
 
     // Add a COLLADA model
-    var modelLayer = new WorldWind.RenderableLayer();
+    var modelLayer = new WorldWind.RenderableLayer("Duck");
     wwd.addLayer(modelLayer);
 
     var position = new WorldWind.Position(10.0, -125.0, 800000.0);
@@ -71,8 +74,10 @@ $(document).ready(function(){
         var wms = new WorldWind.WmsCapabilities(xmlDom);
         var wmsLayerCapabilities = wms.getNamedLayer(layerName);
         var wmsConfig = WorldWind.WmsLayer.formLayerConfiguration(wmsLayerCapabilities);
+        wmsConfig.title = "Average Surface Temp";
         var wmsLayer = new WorldWind.WmsLayer(wmsConfig);
         wwd.addLayer(wmsLayer);
+        layerManager.synchronizeLayerList();
     };
 
     var logError = function (jqXhr, text, exception) {
@@ -82,4 +87,39 @@ $(document).ready(function(){
     };
 
     $.get(serviceAddress).done(createLayer).fail(logError);
+
+    //
+    var parseArgs = function () {
+        var result = {};
+
+        var queryString = window.location.href.split("?");
+        if (queryString && queryString.length > 1) {
+            var args = queryString[1].split("&");
+
+            for (var a = 0; a < args.length; a++) {
+                var arg = args[a].split("=");
+
+                // Obtain geographic position to redirect WorldWindow camera view.
+                if (arg[0] === "pos") {
+                    // arg format is "pos=lat,lon,alt"
+                    var position = arg[1].split(","),
+                        lat = parseFloat(position[0]),
+                        lon = parseFloat(position[1]),
+                        alt = parseFloat(position[2]);
+                    result.position = new WorldWind.Position(lat, lon, alt);
+                }
+            }
+        }
+        console.log("results is:" + result);
+        return result;
+    };
+
+    var args = parseArgs();
+
+    // Now move the view to the requested position.
+    if (args.position) {
+        wwd.goTo(args.position);
+    }
+
+    var layerManager = new LayerManager(wwd);
 });
