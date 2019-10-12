@@ -3,6 +3,9 @@ requirejs([
     function (LayerManager) {
 
     var wwd = new WorldWind.WorldWindow("canvasOne");
+    var colourPosition = new WorldWind.Position(80.0, -160.0, 800000.0);
+    colourPosition.interiorColor = WorldWind.Color.Red;
+    
 
     //adding imagery layers
     wwd.addLayer(new WorldWind.BMNGOneImageLayer());
@@ -40,7 +43,7 @@ requirejs([
 
     var polygonAttributes = new WorldWind.ShapeAttributes(null);
     polygonAttributes.interiorColor = new WorldWind.Color(0, 1, 1, 0.75);
-    polygonAttributes.outlineColor = WorldWind.Color.BLUE;
+    polygonAttributes.outlineColor = WorldWind.Color.RED;
     polygonAttributes.drawOutline = true;
     polygonAttributes.applyLighting = true;
 
@@ -50,8 +53,36 @@ requirejs([
     boundaries.push(new WorldWind.Position(20.0, -95.0, 700000.0));
 
     var polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
+    console.log(polygon);
     polygon.extrude = true;
     polygonLayer.addRenderable(polygon);
+
+    for (var i = 0; i < boundaries.length; i++){
+        console.log(boundaries[i]);
+    }
+
+    //using slider bar to change the shape of polygon
+    $("#lengthSlider").on("change", function (event) {
+        var sliderValue = event.target.value;
+        console.log("Hi");
+        console.log(polygonLayer);
+        polygonLayer.removeRenderable(polygon)
+
+        polygonAttributes = new WorldWind.ShapeAttributes(null);
+        polygonAttributes.interiorColor = new WorldWind.Color(0, 1, 1, 0.75);
+        polygonAttributes.outlineColor = WorldWind.Color.RED;
+        polygonAttributes.drawOutline = true;
+        polygonAttributes.applyLighting = true;
+    
+        var boundaries = [];
+        boundaries.push(new WorldWind.Position(20.0, -75.0, sliderValue * 10000));
+        boundaries.push(new WorldWind.Position(25.0, -85.0, sliderValue * 10000));
+        boundaries.push(new WorldWind.Position(20.0, -95.0, sliderValue * 10000));
+           
+        polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
+        polygon.extrude = true
+        polygonLayer.addRenderable(polygon);
+    });    
 
     // Add a COLLADA model
     var modelLayer = new WorldWind.RenderableLayer("Duck");
@@ -110,7 +141,6 @@ requirejs([
                 }
             }
         }
-        console.log("results is:" + result);
         return result;
     };
 

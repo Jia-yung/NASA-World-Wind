@@ -27,10 +27,19 @@ define(function () {
         });
 
         this.geocoder = new WorldWind.NominatimGeocoder();
-        this.goToAnimator = new WorldWind.GoToAnimator(this.wwd);
+        this.goToAnimator = new WorldWind.GoToAnimator(this.wwd);     
+        
         $("#searchText").on("keypress", function (e) {
             thisExplorer.onSearchTextKeyPress($(this), e);
+            console.log("hi")
         });
+
+        /*
+        $("#lengthSlider").on("change", function (e) {
+            console.log("Hi");
+            thisExplorer.onSliderChange(e);
+        });
+        */
 
         //
         //this.wwd.redrawCallbacks.push(function (worldWindow, stage) {
@@ -43,7 +52,21 @@ define(function () {
     };
 
     LayerManager.prototype.print = function(){
-        desc.append("Hello");
+    };
+
+    LayerManager.prototype.onSliderChange = function (event){
+        console.log(event);
+        var sliderValue = event.target.value;
+        console.log(sliderValue);
+
+        var polygonAttributes = new WorldWind.ShapeAttributes(null);
+        var boundaries = [];
+        boundaries.push(new WorldWind.Position(20.0, -75.0, 700000.0));
+        boundaries.push(new WorldWind.Position(25.0, -85.0, 700000.0));
+        boundaries.push(new WorldWind.Position(20.0, -95.0, 700000.0));
+        
+        this.wwd.polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
+        polygon.extrude = true;
     };
 
     LayerManager.prototype.onProjectionClick = function (event) {

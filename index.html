@@ -17,6 +17,8 @@
                     </div>
                     <br>
                     <h4>Layers</h4>
+                    <p>Length: <output id="lengthValue" style="color: blue"></output><br/>
+                        <input id="lengthSlider" type="range" min="50" max="100" value="100.0" oninput="lengthSliderChange(this.value)" style="width: 200px"></p>
                     <div class="list-group" id="layerList">
                     </div>
                     <h4 id="desc"></h4>
@@ -30,6 +32,7 @@
                             </button>
                         </span>
                     </div>
+                    
                 </div>
                 <div class="col-9">
                     <canvas id="canvasOne" width="1000" height="650" style="width: 100%; height: auto; background-color: black;">Your browser does not support HTML5 Canvas.</canvas>
@@ -52,5 +55,13 @@
          <script data-main="javascript/Globe" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.min.js"></script>
         <!--javascript to render the globe-->
         
+        <script>
+            
+            function lengthSliderChange(val) {
+                document.getElementById('lengthValue').innerHTML = val;         
+            }
+        </script>
+
+
     </body>
 </html>
