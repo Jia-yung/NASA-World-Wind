@@ -1,0 +1,27 @@
+.leftDropdown {
+    position: absolute;
+    top:20px; 
+    left:20px; 
+    z-index:1;
+}
+
+.leftDropdown > h4 {
+    color: white;
+}
+
+.leftDropdown > p {
+    color: white;
+}
+
+.container-fluid {
+    padding: 0px;
+    height: 100%;
+}
+
+#canvasOne {
+    z-index: 0;
+    height: auto;
+    display: block;
+    background-color: black !important;
+}
+

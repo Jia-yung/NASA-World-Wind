@@ -3,19 +3,25 @@ requirejs([
     function (LayerManager) {
 
     var wwd = new WorldWind.WorldWindow("canvasOne");
-    var colourPosition = new WorldWind.Position(80.0, -160.0, 800000.0);
-    colourPosition.interiorColor = WorldWind.Color.Red;
-    
 
     //adding imagery layers
     wwd.addLayer(new WorldWind.BMNGOneImageLayer());
     wwd.addLayer(new WorldWind.BMNGLandsatLayer());
     wwd.addLayer(new WorldWind.AtmosphereLayer());
 
-    //coordinates, compass, controls
-    wwd.addLayer(new WorldWind.CompassLayer());
+    //adding coordinates and controls
     wwd.addLayer(new WorldWind.CoordinatesDisplayLayer(wwd));
     wwd.addLayer(new WorldWind.ViewControlsLayer(wwd));
+
+    //adding compass
+    var compassLayer = new WorldWind.RenderableLayer("Compass");
+    wwd.addLayer(compassLayer);
+
+    var compass = new WorldWind.Compass();
+    compass.imageOffset = new WorldWind.Offset(WorldWind.OFFSET_FRACTION,4.0,WorldWind.OFFSET_FRACTION,1.0);
+    compass.opacity = 0.5
+    compass.size = 0.09;
+    compassLayer.addRenderable(compass);
 
     //adding placemark layer
     var placemarkLayer = new WorldWind.RenderableLayer("Placemark");
@@ -36,7 +42,6 @@ requirejs([
 
     placemarkLayer.addRenderable(placemark);
 
-
     // Displaying 3D shapes. Add a polygon
     var polygonLayer = new WorldWind.RenderableLayer("Polygon");
     wwd.addLayer(polygonLayer);
@@ -52,33 +57,21 @@ requirejs([
     boundaries.push(new WorldWind.Position(25.0, -85.0, 700000.0));
     boundaries.push(new WorldWind.Position(20.0, -95.0, 700000.0));
 
-    var polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
+    polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
     console.log(polygon);
     polygon.extrude = true;
     polygonLayer.addRenderable(polygon);
 
-    for (var i = 0; i < boundaries.length; i++){
-        console.log(boundaries[i]);
-    }
-
-    //using slider bar to change the shape of polygon
+    //using slider bar to change the size of polygon
     $("#lengthSlider").on("change", function (event) {
-        var sliderValue = event.target.value;
-        console.log("Hi");
-        console.log(polygonLayer);
         polygonLayer.removeRenderable(polygon)
+        var sliderValue = event.target.value;
 
-        polygonAttributes = new WorldWind.ShapeAttributes(null);
-        polygonAttributes.interiorColor = new WorldWind.Color(0, 1, 1, 0.75);
-        polygonAttributes.outlineColor = WorldWind.Color.RED;
-        polygonAttributes.drawOutline = true;
-        polygonAttributes.applyLighting = true;
-    
         var boundaries = [];
-        boundaries.push(new WorldWind.Position(20.0, -75.0, sliderValue * 10000));
-        boundaries.push(new WorldWind.Position(25.0, -85.0, sliderValue * 10000));
-        boundaries.push(new WorldWind.Position(20.0, -95.0, sliderValue * 10000));
-           
+        boundaries.push(new WorldWind.Position(20.0, -75.0, 100000000/sliderValue));
+        boundaries.push(new WorldWind.Position(25.0, -85.0, 100000000/sliderValue));
+        boundaries.push(new WorldWind.Position(20.0, -95.0, 100000000/sliderValue));  
+               
         polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
         polygon.extrude = true
         polygonLayer.addRenderable(polygon);
