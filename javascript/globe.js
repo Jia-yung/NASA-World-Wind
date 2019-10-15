@@ -1,5 +1,4 @@
-requirejs([
-        './LayerManager'],
+requirejs(['./LayerManager'],
     function (LayerManager) {
 
     var wwd = new WorldWind.WorldWindow("canvasOne");
@@ -112,6 +111,8 @@ requirejs([
 
     $.get(serviceAddress).done(createLayer).fail(logError);
 
+    //Add WMS imagery for LECZ
+    
     //
     var parseArgs = function () {
         var result = {};

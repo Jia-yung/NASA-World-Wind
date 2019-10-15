@@ -18,6 +18,19 @@
     height: 100%;
 }
 
+.countryDisplay {
+    float:left;
+    width:400px;
+    overflow-y: auto;
+    height: 150px;
+    border-color: black !important;
+}
+
+.country-list {
+    background-color: #F2F3F4 ;
+    margin-bottom: 10px;
+}
+
 #canvasOne {
     z-index: 0;
     height: auto;

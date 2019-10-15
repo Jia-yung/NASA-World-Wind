@@ -1,6 +1,5 @@
 define(function () {
     "use strict";
-
     /**
      * Constructs a layer manager for a specified {@link WorldWindow}.
      * @alias LayerManager
@@ -212,7 +211,7 @@ define(function () {
         projectionDropdown.append(ulItem);
 
         for (var i = 0; i < projectionNames.length; i++) {
-            var projectionItem = $('<li><a >' + projectionNames[i] + '</a></li>');
+            var projectionItem = $('<li><a>' + projectionNames[i] + '</a></li>');
             ulItem.append(projectionItem);
         }
 
