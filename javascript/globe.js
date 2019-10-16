@@ -110,10 +110,8 @@ requirejs(['./LayerManager'],
     };
 
     $.get(serviceAddress).done(createLayer).fail(logError);
-
-    //Add WMS imagery for LECZ
-    
-    //
+   
+    //???
     var parseArgs = function () {
         var result = {};
 

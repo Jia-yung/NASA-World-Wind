@@ -1,21 +1,15 @@
 window.onload = function(){
-
-    var countryContainer = document.getElementById("country-info");
-    var $countryList = $("#countryList");
-
+    
+    var $countryList = $("#countryDisplay");
     var displayCountry = "" +
-    "<li class='country-list'>" + 
+    "<li data-id='{{countryName}}' class='country-list'>" + 
     "<p><strong>Country Name: </strong> {{countryName}} </p>" +
     "<p><strong>Population: </strong> {{population}} </p>" +
-    "<button data-id='{{id}}' class='show'>Go To</button>" +
     "</li>";
 
     function renderCountryList(data){
-        var countryName="";
-        //for (i = 0; i < data.length; i++){
-            console.log(data)
-            $countryList.append(Mustache.render(displayCountry, data))                 
-        //}
+        console.log(data)
+        $countryList.append(Mustache.render(displayCountry, data))                 
     }
     
     $.ajax({
@@ -26,10 +20,5 @@ window.onload = function(){
                 renderCountryList(data);
             })
         }
-    });
-
-    $countryList.on("click", ".show", function(){
-        var $li = $(this).closest('li');
-        console.log($li);      
     });
 };

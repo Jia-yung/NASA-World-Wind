@@ -40,10 +40,14 @@
                 <canvas id="canvasOne">Your browser does not support HTML5 Canvas.</canvas>
             </div>
         </div>
+        <div>           
+            <div class="countryDisplaySection"> 
+                <p class="countryDisplayHeader">List of Sinking country</p>  
+                <ul id="countryDisplay"></ul>
+            </div>
+        </div>     
+       
     </div>
-
-    <!--script element to include Web WorldWind library-->
-    <script src="https://files.worldwind.arc.nasa.gov/artifactory/web/0.9.0/worldwind.min.js" type="text/javascript"></script>
 
     <!--jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -52,37 +56,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
+    <!--script to load list of country display section-->
+    <script src="javascript/GetCountry.js"></script>
+    <script src="/node_modules/mustache/mustache.js"></script> 
+
+    <!--script element to include Web WorldWind library-->
+     <script src="https://files.worldwind.arc.nasa.gov/artifactory/web/0.9.0/worldwind.min.js" type="text/javascript"></script>
+
     <!--javascript to render the globe-->
     <script data-main="javascript/Globe" src="javascript/requirejs2.3.6.js"></script>
+    
+    <!--javascript to resize the globe on display size change-->
+    <script src="javascript/ResizeCanvas.js"></script>
      
     <script>
         function lengthSliderChange(val) {
             document.getElementById('lengthValue').innerHTML = val * 10;
-        }
-
-        (function() {
-            var canvas = document.getElementById('canvasOne');
-            // resize the canvas to fill browser window dynamically
-            window.addEventListener('resize', resizeCanvas, false);
-
-            function resizeCanvas() {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-
-                    /**
-                     * Your drawings need to be inside this function otherwise they will be reset when 
-                     * you resize the browser window and the canvas goes will be cleared.
-                     */
-                    drawStuff(); 
-            }
-            resizeCanvas();
-
-            function drawStuff() {
-                    // do your drawing stuff here
-            }
-        })();
-
-        window.onresize = function(){location.reload();}
+        }    
     </script>
 </body>
 </html>

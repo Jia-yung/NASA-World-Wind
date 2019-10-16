@@ -9,7 +9,9 @@ define(function () {
      */
     var LayerManager = function (worldWindow) {
         var thisExplorer = this;
+        var $countryList = $("#countryDisplay");
 
+        console.log("here", thisExplorer);
         this.wwd = worldWindow;
 
         this.roundGlobe = this.wwd.globe;
@@ -30,15 +32,15 @@ define(function () {
         
         $("#searchText").on("keypress", function (e) {
             thisExplorer.onSearchTextKeyPress($(this), e);
-            console.log("hi")
         });
-
-        /*
-        $("#lengthSlider").on("change", function (e) {
-            console.log("Hi");
-            thisExplorer.onSliderChange(e);
+  
+        $countryList.on("click", ".country-list", function(){ 
+            var li = $(this).closest('li');
+            //console.log($("#country-list").attr("data-id"));
+            console.log(li[0].dataset.id);
+            //console.log(li.prevObject[0].innerText);  
+            thisExplorer.performSearch(li[0].dataset.id);   
         });
-        */
 
         //
         //this.wwd.redrawCallbacks.push(function (worldWindow, stage) {
@@ -51,21 +53,6 @@ define(function () {
     };
 
     LayerManager.prototype.print = function(){
-    };
-
-    LayerManager.prototype.onSliderChange = function (event){
-        console.log(event);
-        var sliderValue = event.target.value;
-        console.log(sliderValue);
-
-        var polygonAttributes = new WorldWind.ShapeAttributes(null);
-        var boundaries = [];
-        boundaries.push(new WorldWind.Position(20.0, -75.0, 700000.0));
-        boundaries.push(new WorldWind.Position(25.0, -85.0, 700000.0));
-        boundaries.push(new WorldWind.Position(20.0, -95.0, 700000.0));
-        
-        this.wwd.polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
-        polygon.extrude = true;
     };
 
     LayerManager.prototype.onProjectionClick = function (event) {

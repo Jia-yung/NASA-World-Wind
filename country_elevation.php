@@ -13,8 +13,8 @@
         <h1>Results</h1>
        
         <p>Country Elevation and population info</p>
-        <div class="countryDisplay">
-            <ul id="countryList"></ul>
+        <div class="countryDisplaySection">
+            <ul id="countryDisplay"></ul>
         </div>
         
         <script src="javascript/GetCountry.js"></script>

@@ -19,7 +19,7 @@
                     <a class="nav-link" href="forum.php">Forum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="countryElevation.php">Elevation</a>
+                    <a class="nav-link" href="country_elevation.php">Country Elevation</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

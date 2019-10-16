@@ -18,17 +18,30 @@
     height: 100%;
 }
 
-.countryDisplay {
+.countryDisplaySection {
     float:left;
-    width:400px;
+    width:300px;
     overflow-y: auto;
-    height: 150px;
-    border-color: black !important;
+    height:400px;
+    z-index:1;
+    position:absolute;
+    right:10px;
+    top:70px;
 }
 
 .country-list {
     background-color: #F2F3F4 ;
     margin-bottom: 10px;
+}
+
+.country-list:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.countryDisplayHeader {
+    color: white;
+    z-index: 1;
 }
 
 #canvasOne {
