@@ -2,36 +2,72 @@
     {
         "countryName": "Maldives",
         "elevation": 3,
-        "population": "215665"
+        "population": "215665",
+        "latitude": 3.2028,
+        "longitude": 73.2207
     },
     {
-        "countryName": "Malaysia",
+        "countryName": "Venice, Italy",
         "elevation": 2,
-        "population": "17830720"
+        "population": "17830720",
+        "latitude": 45.4387,
+        "longitude": 12.3271
     },
     {
-        "countryName": "Australia",
+        "countryName": "Dhaka, Bangladesh",
         "elevation": 2,
-        "population": "17830720"
+        "population": "17830720",
+        "latitude": 23.7287,
+        "longitude": 90.3937
     },
     {
-        "countryName": "Singapore",
+        "countryName": "Lagos, Nigeria",
         "elevation": 2,
-        "population": "17830720"
+        "population": "17830720",
+        "latitude": 6.4654,
+        "longitude": 3.4064
     },
     {
-        "countryName": "Indonesia",
+        "countryName": "Jakarta, Indonesia",
         "elevation": 2,
-        "population": "1982480"
+        "population": "1982480",
+        "latitude": -6.2000,
+        "longitude": 106.8166
     },
     {
-        "countryName": "America",
+        "countryName": "Houston, Texas",
         "elevation": 2,
-        "population": "6860720"
+        "population": "6860720",
+        "latitude": 29.7499,
+        "longitude": -95.3584
     },
     {
-        "countryName": "India",
+        "countryName": "Goa, India",
         "elevation": 2,
-        "population": "759382"
+        "population": "759382",
+        "latitude": 15.4967,
+        "longitude": 73.82787
+    },
+    {
+        "countryName": "Bangkok, Thailand",
+        "elevation": 2,
+        "population": "123132",
+        "latitude": 13.7367,
+        "longitude": 100.5231
+
+    },
+    {
+        "countryName": "Rotterdam, Netherlands",
+        "elevation": 2,
+        "population": "123132",
+        "latitude": 51.9244,
+        "longitude": 4.4777
+    },
+    {
+        "countryName": "New Orleans, Louisiana",
+        "elevation": 2,
+        "population": "123132",
+        "latitude": 29.9510,
+        "longitude": -90.0715
     }
 ]

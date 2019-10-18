@@ -72,6 +72,7 @@
     <script>
         function lengthSliderChange(val) {
             document.getElementById('lengthValue').innerHTML = val * 10;
+            
         }    
     </script>
 </body>
