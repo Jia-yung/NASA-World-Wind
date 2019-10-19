@@ -10,8 +10,6 @@ define(function () {
     var LayerManager = function (worldWindow) {
         var thisExplorer = this;
         var $countryList = $("#countryDisplay");
-
-        console.log("here", thisExplorer);
         this.wwd = worldWindow;
 
         this.roundGlobe = this.wwd.globe;
@@ -33,13 +31,31 @@ define(function () {
         $("#searchText").on("keypress", function (e) {
             thisExplorer.onSearchTextKeyPress($(this), e);
         });
-  
+        
+        var placemarkLayer = new WorldWind.RenderableLayer("placemark");
+        this.wwd.addLayer(placemarkLayer);
+
+        var placemarkAttributes = new WorldWind.PlacemarkAttributes(null);
+        placemarkAttributes.imageOffset = new WorldWind.Offset(WorldWind.OFFSET_FRACTION, 0.3, WorldWind.OFFSET_FRACTION, 0.0);
+        placemarkAttributes.labelAttributes.color = WorldWind.Color.YELLOW;
+        placemarkAttributes.labelAttributes.offset = new WorldWind.Offset(WorldWind.OFFSET_FRACTION, 0.5, WorldWind.OFFSET_FRACTION, 1.0);
+        placemarkAttributes.imageSource = WorldWind.configuration.baseUrl + "images/pushpins/plain-red.png";
+        
         $countryList.on("click", ".country-list", function(){ 
             var li = $(this).closest('li');
-            //console.log($("#country-list").attr("data-id"));
-            console.log(li[0].dataset.id);
-            //console.log(li.prevObject[0].innerText);  
-            thisExplorer.performSearch(li[0].dataset.id);   
+            var name = li[0].dataset.id; 
+            var population = li[0].attributes.population.value;
+            var latitude = li[0].attributes.latitude.value;
+            var longitude = li[0].attributes.longitude.value;
+            var position = new WorldWind.Position(latitude, longitude, 100.0);          
+            var countryPlacemark = new WorldWind.Placemark(position, false, placemarkAttributes); 
+            
+            thisExplorer.performSearch(name);
+
+            placemarkLayer.removeAllRenderables();           
+            countryPlacemark.label = name + "\n" + "population: " + population;
+            countryPlacemark.alwaysOnTop = true;
+            placemarkLayer.addRenderable(countryPlacemark);
         });
 
         //

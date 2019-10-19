@@ -4,42 +4,29 @@ requirejs(['./LayerManager'],
     var wwd = new WorldWind.WorldWindow("canvasOne");
 
     //adding imagery layers
+    var starField = new WorldWind.StarFieldLayer();
+    starField.pickEnabled = false;
+    wwd.addLayer(starField);
     wwd.addLayer(new WorldWind.BMNGOneImageLayer());
     wwd.addLayer(new WorldWind.BMNGLandsatLayer());
     wwd.addLayer(new WorldWind.AtmosphereLayer());
 
     //adding coordinates and controls
     wwd.addLayer(new WorldWind.CoordinatesDisplayLayer(wwd));
-    wwd.addLayer(new WorldWind.ViewControlsLayer(wwd));
+    var controls = new WorldWind.ViewControlsLayer(wwd);
+    controls.placement = new WorldWind.Offset(WorldWind.OFFSET_FRACTION, 0.25, WorldWind.OFFSET_FRACTION, 0);
+    wwd.addLayer(controls);
 
     //adding compass
     var compassLayer = new WorldWind.RenderableLayer("Compass");
     wwd.addLayer(compassLayer);
 
-    var compass = new WorldWind.Compass();
+    var compassImage = '../images/compass.png';
+    var compass = new WorldWind.Compass(null, compassImage);
     compass.imageOffset = new WorldWind.Offset(WorldWind.OFFSET_FRACTION,4.0,WorldWind.OFFSET_FRACTION,1.0);
     compass.opacity = 0.5
     compass.size = 0.09;
     compassLayer.addRenderable(compass);
-
-    //adding placemark layer
-    var placemarkLayer = new WorldWind.RenderableLayer("Placemark");
-    wwd.addLayer(placemarkLayer);
-
-    var placemarkAttributes = new WorldWind.PlacemarkAttributes(null);
-    placemarkAttributes.imageOffset = new WorldWind.Offset(WorldWind.OFFSET_FRACTION, 0.3, WorldWind.OFFSET_FRACTION, 0.0);
-    placemarkAttributes.labelAttributes.color = WorldWind.Color.YELLOW;
-    placemarkAttributes.labelAttributes.offset = new WorldWind.Offset(WorldWind.OFFSET_FRACTION, 0.5, WorldWind.OFFSET_FRACTION, 1.0);
-
-    placemarkAttributes.imageSource = WorldWind.configuration.baseUrl + "images/pushpins/plain-red.png";
-
-    var position = new WorldWind.Position(55.0, -106.0, 100.0);
-    var placemark = new WorldWind.Placemark(position, false, placemarkAttributes);
-
-    placemark.label = "Placemark\n" + "Lat " + placemark.position.latitude.toPrecision(4).toString() + "\n" + "Lon " + placemark.position.longitude.toPrecision(5).toString();
-    placemark.alwaysOnTop = true;
-
-    placemarkLayer.addRenderable(placemark);
 
     // Displaying 3D shapes. Add a polygon
     var polygonLayer = new WorldWind.RenderableLayer("Polygon");
@@ -47,24 +34,36 @@ requirejs(['./LayerManager'],
 
     var polygonAttributes = new WorldWind.ShapeAttributes(null);
     polygonAttributes.interiorColor = new WorldWind.Color(0, 1, 1, 0.75);
-    polygonAttributes.outlineColor = WorldWind.Color.RED;
-    polygonAttributes.drawOutline = true;
-    polygonAttributes.applyLighting = true;
 
     var boundaries = [];
-    boundaries.push(new WorldWind.Position(20.0, -75.0, 700000.0));
-    boundaries.push(new WorldWind.Position(25.0, -85.0, 700000.0));
-    boundaries.push(new WorldWind.Position(20.0, -95.0, 700000.0));
+    boundaries.push(new WorldWind.Position(20.0, -75.0, 1001000));
+    boundaries.push(new WorldWind.Position(25.0, -85.0, 1001000));
+    boundaries.push(new WorldWind.Position(20.0, -95.0, 1001000));
 
     polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
-    console.log(polygon);
     polygon.extrude = true;
     polygonLayer.addRenderable(polygon);
 
+    function alterPolygon(height) {
+        polygonLayer.removeRenderable(polygon)
+        var sliderValue = height;
+        console.log("slider value", sliderValue);
+
+        var boundaries = [];
+        boundaries.push(new WorldWind.Position(20.0, -75.0, 100001000/sliderValue));
+        boundaries.push(new WorldWind.Position(25.0, -85.0, 100001000/sliderValue));
+        boundaries.push(new WorldWind.Position(20.0, -95.0, 100001000/sliderValue));  
+               
+        polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
+        polygon.extrude = true
+        polygonLayer.addRenderable(polygon);
+    }
+    /*
     //using slider bar to change the size of polygon
     $("#lengthSlider").on("change", function (event) {
         polygonLayer.removeRenderable(polygon)
         var sliderValue = event.target.value;
+        console.log("slider value", sliderValue);
 
         var boundaries = [];
         boundaries.push(new WorldWind.Position(20.0, -75.0, 100000000/sliderValue));
@@ -74,43 +73,67 @@ requirejs(['./LayerManager'],
         polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
         polygon.extrude = true
         polygonLayer.addRenderable(polygon);
-    });    
+    });
+    */
+    
+    height = 200;
+    yearSliderDefault = 160;
+    temperatureSliderDefault = 150;
+    vehicleSliderDefault = 100;
 
-    // Add a COLLADA model
-    var modelLayer = new WorldWind.RenderableLayer("Duck");
-    wwd.addLayer(modelLayer);
-
-    var position = new WorldWind.Position(10.0, -125.0, 800000.0);
-    var config = {dirPath: WorldWind.configuration.baseUrl + 'examples/collada_models/duck/'};
-
-    var colladaLoader = new WorldWind.ColladaLoader(position, config);
-    colladaLoader.load("duck.dae", function (colladaModel) {
-        colladaModel.scale = 9000;
-        modelLayer.addRenderable(colladaModel);
+    $("#yearSlider").on("change", function (event) {
+        value = event.target.valueAsNumber;
+        console.log("year slider value", value);
+        console.log("year Default", yearSliderDefault);
+        
+        if (value > yearSliderDefault) {
+            height = height + (value - yearSliderDefault);
+            console.log("Height", height);
+        } else if (value < yearSliderDefault) {
+            height = height - (yearSliderDefault-value);
+        }
+        yearSliderDefault = value;
+        console.log("Height", height); 
+        alterPolygon(height);
     });
 
-    // Add WMS imagery
-    var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
-    var layerName = "MOD_LSTD_CLIM_M";
+    $("#temperatureSlider").on("change", function (event) {
+        tempValue = event.target.valueAsNumber;
+        console.log("temp slider value", tempValue);
+        console.log("temp Default", temperatureSliderDefault);
+        
+        if (tempValue > temperatureSliderDefault) {
+            height = height + (tempValue - temperatureSliderDefault);
+            console.log("Height", height);
+            console.log("difference", tempValue - temperatureSliderDefault)
+        } else if (tempValue < temperatureSliderDefault) {
+            height = height - (temperatureSliderDefault-tempValue);
+            console.log("difference", temperatureSliderDefault-tempValue)
+        }
+        temperatureSliderDefault = tempValue;
+        console.log("Height", height); 
+        alterPolygon(height);
+    });
 
-    var createLayer = function (xmlDom) {
-        var wms = new WorldWind.WmsCapabilities(xmlDom);
-        var wmsLayerCapabilities = wms.getNamedLayer(layerName);
-        var wmsConfig = WorldWind.WmsLayer.formLayerConfiguration(wmsLayerCapabilities);
-        wmsConfig.title = "Average Surface Temp";
-        var wmsLayer = new WorldWind.WmsLayer(wmsConfig);
-        wwd.addLayer(wmsLayer);
-        layerManager.synchronizeLayerList();
-    };
-
-    var logError = function (jqXhr, text, exception) {
-        console.log("There was a failure retrieving the capabilities document: " +
-            text +
-        " exception: " + exception);
-    };
-
-    $.get(serviceAddress).done(createLayer).fail(logError);
-   
+    $("#vehicleSlider").on("change", function (event) {
+        tempValue = event.target.valueAsNumber;
+        console.log("temp slider value", tempValue);
+        console.log("temp Default", vehicleSliderDefault);
+        
+        if (tempValue > vehicleSliderDefault) {
+            height = height + (tempValue - vehicleSliderDefault);
+            console.log("Height", height);
+            console.log("difference", tempValue - vehicleSliderDefault)
+        } else if (tempValue < vehicleSliderDefault) {
+            height = height - (vehicleSliderDefault-tempValue);
+            console.log("difference", vehicleSliderDefault-tempValue)
+        }
+        vehicleSliderDefault = tempValue;
+        console.log("Height", height); 
+        alterPolygon(height);
+    });
+    
+    
     //???
     var parseArgs = function () {
         var result = {};
