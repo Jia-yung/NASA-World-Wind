@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CDN stylesheets for bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
     <link rel="stylesheet" href="css/custom.css">
 </head>
 
@@ -14,22 +15,38 @@
     <div class="container-fluid">
         <div style="position: relative;">
             <div class="leftDropdown">
-                <h4>Projection</h4>
-                <div class="dropdown" id="projectionDropdown"></div>
+                <h4>Factors</h4>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Options
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">    
+                        <p style="color: grey">Year: <output id="yearValue" ></output><br />
+                            <input id="yearSlider" type="range" min="120" max="220" value="160.0" oninput="yearSliderChange(this.value)" style="width: 200px">
+                        </p>
+                        <p style="color: grey">Global Temperature: <output id="temperatureValue"></output><br />
+                            <input id="temperatureSlider" type="range" min="50" max="300" value="150.0" oninput="temperatureSliderChange(this.value)" style="width: 200px">
+                        </p>
+                        <p style="color: grey">Vehicles: <output id="vehicleValue"></output><br />
+                            <input id="vehicleSlider" type="range" min="120" max="220" value="160.0" oninput="vehicleSliderChange(this.value)" style="width: 200px">
+                        </p>                     
+                    </div>
+                </div>
+               
+                <!--<h4>Projection</h4>-->
+                <!--<div class="dropdown" id="projectionDropdown"></div>-->
                 <br>
-                <h4>Layers</h4>
-                <p>Year: <output id="lengthValue" style="color: blue"></output><br />
-                    <input id="lengthSlider" type="range" min="170" max="220" value="100.0"
-                        oninput="lengthSliderChange(this.value)" style="width: 200px"></p>
+                <h4>Layers</h4>            
                 <div class="list-group" id="layerList">
                 </div>
+                
                 <br>
                 <h4>Destination</h4>
                 <div class="input-group" id="searchBox">
                     <input type="text" class="form-control" placeholder="GoTo" id="searchText" />
                     <div class="input-group-btn">
                         <button id="searchButton" class="btn btn-primary" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
+                            <span class="fa fa-search"></span>
                         </button>
                     </div>
                 </div>
@@ -40,9 +57,9 @@
                 <canvas id="canvasOne">Your browser does not support HTML5 Canvas.</canvas>
             </div>
         </div>
-        <div>           
-            <div class="countryDisplaySection"> 
-                <p class="countryDisplayHeader">List of Sinking country</p>  
+        <div class="countrySection">
+            <h4 class="countryTitle">Sinking Cities</h4>
+            <div class="countryListSection"> 
                 <ul id="countryDisplay"></ul>
             </div>
         </div>     
@@ -70,10 +87,17 @@
     <script src="javascript/ResizeCanvas.js"></script>
      
     <script>
-        function lengthSliderChange(val) {
-            document.getElementById('lengthValue').innerHTML = val * 10;
-            
-        }    
+        function yearSliderChange(val) {
+            document.getElementById('yearValue').innerHTML = val * 10;          
+        }
+
+        function temperatureSliderChange(val) {
+            document.getElementById('temperatureValue').innerHTML = val/100;            
+        }  
+        
+        function vehicleSliderChange(val) {
+            document.getElementById('vehicleValue').innerHTML = val * 100000;            
+        }  
     </script>
 </body>
 </html>

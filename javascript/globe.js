@@ -4,19 +4,25 @@ requirejs(['./LayerManager'],
     var wwd = new WorldWind.WorldWindow("canvasOne");
 
     //adding imagery layers
+    var starField = new WorldWind.StarFieldLayer();
+    starField.pickEnabled = false;
+    wwd.addLayer(starField);
     wwd.addLayer(new WorldWind.BMNGOneImageLayer());
     wwd.addLayer(new WorldWind.BMNGLandsatLayer());
     wwd.addLayer(new WorldWind.AtmosphereLayer());
 
     //adding coordinates and controls
     wwd.addLayer(new WorldWind.CoordinatesDisplayLayer(wwd));
-    wwd.addLayer(new WorldWind.ViewControlsLayer(wwd));
+    var controls = new WorldWind.ViewControlsLayer(wwd);
+    controls.placement = new WorldWind.Offset(WorldWind.OFFSET_FRACTION, 0.25, WorldWind.OFFSET_FRACTION, 0);
+    wwd.addLayer(controls);
 
     //adding compass
     var compassLayer = new WorldWind.RenderableLayer("Compass");
     wwd.addLayer(compassLayer);
 
-    var compass = new WorldWind.Compass();
+    var compassImage = '../images/compass.png';
+    var compass = new WorldWind.Compass(null, compassImage);
     compass.imageOffset = new WorldWind.Offset(WorldWind.OFFSET_FRACTION,4.0,WorldWind.OFFSET_FRACTION,1.0);
     compass.opacity = 0.5
     compass.size = 0.09;
@@ -28,24 +34,36 @@ requirejs(['./LayerManager'],
 
     var polygonAttributes = new WorldWind.ShapeAttributes(null);
     polygonAttributes.interiorColor = new WorldWind.Color(0, 1, 1, 0.75);
-    polygonAttributes.outlineColor = WorldWind.Color.RED;
-    polygonAttributes.drawOutline = true;
-    polygonAttributes.applyLighting = true;
 
     var boundaries = [];
-    boundaries.push(new WorldWind.Position(20.0, -75.0, 700000.0));
-    boundaries.push(new WorldWind.Position(25.0, -85.0, 700000.0));
-    boundaries.push(new WorldWind.Position(20.0, -95.0, 700000.0));
+    boundaries.push(new WorldWind.Position(20.0, -75.0, 1001000));
+    boundaries.push(new WorldWind.Position(25.0, -85.0, 1001000));
+    boundaries.push(new WorldWind.Position(20.0, -95.0, 1001000));
 
     polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
-    console.log(polygon);
     polygon.extrude = true;
     polygonLayer.addRenderable(polygon);
 
+    function alterPolygon(height) {
+        polygonLayer.removeRenderable(polygon)
+        var sliderValue = height;
+        console.log("slider value", sliderValue);
+
+        var boundaries = [];
+        boundaries.push(new WorldWind.Position(20.0, -75.0, 100001000/sliderValue));
+        boundaries.push(new WorldWind.Position(25.0, -85.0, 100001000/sliderValue));
+        boundaries.push(new WorldWind.Position(20.0, -95.0, 100001000/sliderValue));  
+               
+        polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
+        polygon.extrude = true
+        polygonLayer.addRenderable(polygon);
+    }
+    /*
     //using slider bar to change the size of polygon
     $("#lengthSlider").on("change", function (event) {
         polygonLayer.removeRenderable(polygon)
         var sliderValue = event.target.value;
+        console.log("slider value", sliderValue);
 
         var boundaries = [];
         boundaries.push(new WorldWind.Position(20.0, -75.0, 100000000/sliderValue));
@@ -55,21 +73,67 @@ requirejs(['./LayerManager'],
         polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
         polygon.extrude = true
         polygonLayer.addRenderable(polygon);
-    });    
-
-    // Add a COLLADA model
-    var modelLayer = new WorldWind.RenderableLayer("Duck");
-    wwd.addLayer(modelLayer);
-
-    var position = new WorldWind.Position(10.0, -125.0, 800000.0);
-    var config = {dirPath: WorldWind.configuration.baseUrl + 'examples/collada_models/duck/'};
-
-    var colladaLoader = new WorldWind.ColladaLoader(position, config);
-    colladaLoader.load("duck.dae", function (colladaModel) {
-        colladaModel.scale = 9000;
-        modelLayer.addRenderable(colladaModel);
     });
-   
+    */
+    
+    height = 200;
+    yearSliderDefault = 160;
+    temperatureSliderDefault = 150;
+    vehicleSliderDefault = 100;
+
+    $("#yearSlider").on("change", function (event) {
+        value = event.target.valueAsNumber;
+        console.log("year slider value", value);
+        console.log("year Default", yearSliderDefault);
+        
+        if (value > yearSliderDefault) {
+            height = height + (value - yearSliderDefault);
+            console.log("Height", height);
+        } else if (value < yearSliderDefault) {
+            height = height - (yearSliderDefault-value);
+        }
+        yearSliderDefault = value;
+        console.log("Height", height); 
+        alterPolygon(height);
+    });
+
+    $("#temperatureSlider").on("change", function (event) {
+        tempValue = event.target.valueAsNumber;
+        console.log("temp slider value", tempValue);
+        console.log("temp Default", temperatureSliderDefault);
+        
+        if (tempValue > temperatureSliderDefault) {
+            height = height + (tempValue - temperatureSliderDefault);
+            console.log("Height", height);
+            console.log("difference", tempValue - temperatureSliderDefault)
+        } else if (tempValue < temperatureSliderDefault) {
+            height = height - (temperatureSliderDefault-tempValue);
+            console.log("difference", temperatureSliderDefault-tempValue)
+        }
+        temperatureSliderDefault = tempValue;
+        console.log("Height", height); 
+        alterPolygon(height);
+    });
+
+    $("#vehicleSlider").on("change", function (event) {
+        tempValue = event.target.valueAsNumber;
+        console.log("temp slider value", tempValue);
+        console.log("temp Default", vehicleSliderDefault);
+        
+        if (tempValue > vehicleSliderDefault) {
+            height = height + (tempValue - vehicleSliderDefault);
+            console.log("Height", height);
+            console.log("difference", tempValue - vehicleSliderDefault)
+        } else if (tempValue < vehicleSliderDefault) {
+            height = height - (vehicleSliderDefault-tempValue);
+            console.log("difference", vehicleSliderDefault-tempValue)
+        }
+        vehicleSliderDefault = tempValue;
+        console.log("Height", height); 
+        alterPolygon(height);
+    });
+    
+    
     //???
     var parseArgs = function () {
         var result = {};
