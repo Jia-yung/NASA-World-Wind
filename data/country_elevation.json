@@ -1,36 +1,33 @@
 [
     {
         "countryName": "Maldives",
-        "elevation": 3,
-        "population": "215665",
+        "elevation": "< 3",
+        "population": "84987",
+        "income group": "Low",
         "latitude": 3.2028,
         "longitude": 73.2207
     },
     {
         "countryName": "Venice, Italy",
-        "elevation": 2,
-        "population": "17830720",
+        "elevation": 1,
+        "population": "1504973",
+        "income group": "High",
         "latitude": 45.4387,
         "longitude": 12.3271
     },
     {
         "countryName": "Dhaka, Bangladesh",
-        "elevation": 2,
-        "population": "17830720",
+        "elevation": "< 4",
+        "population": "13418230",
+        "income group": "Low",
         "latitude": 23.7287,
         "longitude": 90.3937
     },
     {
-        "countryName": "Lagos, Nigeria",
-        "elevation": 2,
-        "population": "17830720",
-        "latitude": 6.4654,
-        "longitude": 3.4064
-    },
-    {
         "countryName": "Jakarta, Indonesia",
-        "elevation": 2,
-        "population": "1982480",
+        "elevation": "< 10",
+        "population": "42400784",
+        "income group": "Low",
         "latitude": -6.2000,
         "longitude": 106.8166
     },
@@ -44,14 +41,16 @@
     {
         "countryName": "Goa, India",
         "elevation": 2,
-        "population": "759382",
+        "population": "55869301",
+        "income group": "Lower Middle",
         "latitude": 15.4967,
         "longitude": 73.82787
     },
     {
         "countryName": "Bangkok, Thailand",
-        "elevation": 2,
-        "population": "123132",
+        "elevation": "< 3",
+        "population": "1840503",
+        "income group": "Upper Middle",
         "latitude": 13.7367,
         "longitude": 100.5231
 
@@ -59,14 +58,16 @@
     {
         "countryName": "Rotterdam, Netherlands",
         "elevation": 2,
-        "population": "123132",
+        "population": "6794845",
+        "income group": "High",
         "latitude": 51.9244,
         "longitude": 4.4777
     },
     {
         "countryName": "New Orleans, Louisiana",
-        "elevation": 2,
-        "population": "123132",
+        "elevation": "< 1",
+        "population": "1797419",
+        "income group": "High",
         "latitude": 29.9510,
         "longitude": -90.0715
     }

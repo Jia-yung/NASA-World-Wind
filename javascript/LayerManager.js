@@ -42,6 +42,7 @@ define(function () {
         placemarkAttributes.imageSource = WorldWind.configuration.baseUrl + "images/pushpins/plain-red.png";
         
         $countryList.on("click", ".country-list", function(){ 
+            thisExplorer.print();
             var li = $(this).closest('li');
             var name = li[0].dataset.id; 
             var population = li[0].attributes.population.value;
@@ -56,6 +57,8 @@ define(function () {
             countryPlacemark.label = name + "\n" + "population: " + population;
             countryPlacemark.alwaysOnTop = true;
             placemarkLayer.addRenderable(countryPlacemark);
+
+            thisExplorer.floodPolygon(latitude, longitude);
         });
 
         //
@@ -65,10 +68,28 @@ define(function () {
         //    }
         //});
 
-        this.print();
+       
+    };
+
+    LayerManager.prototype.floodPolygon = function(latitude, longitude){
+        var floodPolygonLayer = new WorldWind.RenderableLayer("Flood");
+        this.wwd.addLayer(floodPolygonLayer);
+
+        var floodPolygonAttributes = new WorldWind.ShapeAttributes(null);
+        floodPolygonAttributes.interiorColor = new WorldWind.Color(214, 234, 248, 0.5);
+
+        var floodBoundaries = [];
+        floodBoundaries.push(new WorldWind.Position(latitude, longitude, 1001000));
+        floodBoundaries.push(new WorldWind.Position(latitude+3, longitude+1, 1001000));
+        floodBoundaries.push(new WorldWind.Position(latitude+4, longitude+4, 1001000));
+
+        var floodPolygon = new WorldWind.Polygon(floodBoundaries, floodPolygonAttributes);
+        floodPolygon.extrude = false;
+        floodPolygonLayer.addRenderable(floodPolygon);
     };
 
     LayerManager.prototype.print = function(){
+        console.log("Hello Here")
     };
 
     LayerManager.prototype.onProjectionClick = function (event) {
@@ -172,26 +193,6 @@ define(function () {
             self.onLayerClick($(this));
         });
     };
-    //
-    //LayerManager.prototype.updateVisibilityState = function (worldWindow) {
-    //    var layerButtons = $("#layerList").find("button"),
-    //        layers = worldWindow.layers;
-    //
-    //    for (var i = 0; i < layers.length; i++) {
-    //        var layer = layers[i];
-    //        for (var j = 0; j < layerButtons.length; j++) {
-    //            var button = layerButtons[j];
-    //
-    //            if (layer.displayName === button.innerText) {
-    //                if (layer.inCurrentFrame) {
-    //                    button.innerHTML = "<em>" + layer.displayName + "</em>";
-    //                } else {
-    //                    button.innerHTML = layer.displayName;
-    //                }
-    //            }
-    //        }
-    //    }
-    //};
 
     LayerManager.prototype.createProjectionList = function () {
         var projectionNames = [
