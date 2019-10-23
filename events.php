@@ -4,41 +4,26 @@
     <meta charset="utf-8">
     <!--CDN stylesheets for bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/event.css">
+
 </head>
 
 <body>
     <?php include 'navigation.php';?>
-
-    <!-- <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-    </div> -->
-
     <div class="container">
-
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="news-text">Make a Difference and Sign Up for an event</h3>
-
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-4">
-            <figure class="snip1527 shadow">
+            <figure class="event-card shadow-lg">
                 <div class="image"><img style="padding:15px 9px 79px 36px;" src="images/events/fts.jpg" alt="pr-sample23" /></div>
                 <figcaption>
                     <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
                     <h3>Free Tree Giveaway</h3>
                     <p>
-
                     Special days for people from all walks of life to get a #freetree! Interact with Team FTS and boost your knowledge of everything green!
                     </p>
                 </figcaption>
@@ -46,13 +31,12 @@
             </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img src="images/events/24.jpg" alt="pr-sample25" /></div>
                     <figcaption>
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Tree planting</h3>
                         <p>
-
                         Book the nursery for an experience like no other. Bond over plants, doing good for the planet, and boost your environmental cred.
                         </p>
                     </figcaption>
@@ -60,13 +44,12 @@
                 </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img style="padding:15px 9px 79px 36px;" src="images/events/fts.jpg" alt="pr-sample23" /></div>
                     <figcaption>
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Climate 101 </h3>
                         <p>
-
                         Learn the science, impacts and solutions to the climate crisis in an impactful 30-45 minute presentation. Bring the knowledge anywhere.
                         </p>
                     </figcaption>
@@ -77,7 +60,7 @@
 
         <div class="row">
             <div class="col-sm-4">
-            <figure class="snip1527">
+            <figure class="event-card shadow-lg">
                 <div class="image"><img style="padding-bottom:120px; background-color: black;" src="images/events/nursery-maintenance.jpg" alt="pr-sample23" /></div>
                 <figcaption>
                     <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
@@ -90,13 +73,12 @@
             </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img style="padding-bottom: 120px; background-color: black; " src="images/events/environment-edu.jpg" alt="pr-sample25" /></div>
                     <figcaption  style="padding: 25px 20px 51px !important;">
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Environmental education program</h3>
                         <p>
-
                         MNS Special Interest Groups and other educators will provide talks, walks and activities for the public. Night walks are also organised to observe wildlife such as fireflies, frogs and owls in the dark. Above the resource center, there is an auditorium which could house around 40 persons for nature talks and lecture series.
                         </p>
                     </figcaption>
@@ -104,7 +86,7 @@
                 </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img style="padding-bottom: 20px; background-color: #02020294;" src="images/events/treeee.jpg" alt="pr-sample25" /></div>
                     <figcaption style="padding: 25px 20px 90px">
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
@@ -120,13 +102,12 @@
 
         <div class="row">
             <div class="col-sm-4">
-            <figure class="snip1527">
+            <figure class="event-card shadow-lg">
                 <div class="image"><img style="" src="images/events/img-0198_orig.jpg" alt="pr-sample23" /></div>
                 <figcaption>
                     <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
                     <h3>Be A Volunteer</h3>
                     <p>
-
                     Join Us Now if you are interested in volunteering with Malaysian Nature Society.
                     </p>
                 </figcaption>
@@ -134,13 +115,12 @@
             </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img class="mns-img" src="images/events/mns.jpg" alt="pr-sample25" /></div>
                     <figcaption>
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Donate to MNS</h3>
                         <p>
-
                         Thank you for your interest in volunteering with Malaysian Nature Society.
                         </p>
                     </figcaption>
@@ -148,7 +128,7 @@
                 </figure>
             </div>
             <div class="col-sm-4">
-            <figure class="snip1527">
+            <figure class="event-card shadow-lg">
                 <div class="image"><img style="" src="images/events/tnbrun.jpg" alt="pr-sample23" /></div>
                 <figcaption>
                     <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
@@ -164,7 +144,7 @@
 
         <div class="row">
             <div class="col-sm-4">
-            <figure class="snip1527">
+            <figure class="event-card shadow-lg">
                 <div class="image"><img style="" src="images/events/tea.jpg" alt="pr-sample23" /></div>
                 <figcaption>
                     <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
@@ -177,13 +157,12 @@
             </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img style="padding-bottom:7px;" src="images/events/windmill.jpg" alt="pr-sample25" /></div>
                     <figcaption>
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Eliminating Deforestation</h3>
                         <p>
-
                         Forests are essential to life. They are the lungs of our planet and help to regulate our climate. We should start to protect our forest.
                         </p>
                     </figcaption>
@@ -191,13 +170,12 @@
                 </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img style="padding-bottom:7px;" src="images/events/green.jpg" alt="pr-sample23" /></div>
                     <figcaption>
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Use Climate Friendly Freezers </h3>
                         <p>
-
                         Freezers come with a significant climate footprint. It contains HFC refrigerants that damage ozone layer.
                         </p>
                     </figcaption>
@@ -208,13 +186,12 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img class="landskap-img" src="images/events/landskap.jpg" alt="pr-sample25" /></div>
                     <figcaption>
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Tree Planting Program</h3>
                         <p>
-
                         Hutan Kita is a reforestation programme encouraging various communities to plant rainforest trees
                         </p>
                     </figcaption>
@@ -222,13 +199,12 @@
                 </figure>
             </div>
             <div class="col-sm-4">
-                <figure class="snip1527">
+                <figure class="event-card shadow-lg">
                     <div class="image"><img style="padding-bottom:90px;" src="images/events/income-eco1.jpg" alt="pr-sample23" /></div>
                     <figcaption>
                         <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
                         <h3>Income Eco Run  </h3>
                         <p>
-
                         Income Eco Run is Southeast Asia’s premier eco-run which champions environmental conservation.
                         </p>
                     </figcaption>
@@ -237,26 +213,14 @@
             </div>
         </div>
         <br/>
-
     </div>
 
     <?php include 'footer.php';?>
-
-
     <!--jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
    <!--popper and javascript plugin-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script>
-       /* Demo purposes only */
-$(".hover").mouseleave(
-  function() {
-    $(this).removeClass("hover");
-  }
-);
-    </script>
 </body>
 </html>

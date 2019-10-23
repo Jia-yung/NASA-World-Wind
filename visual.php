@@ -3,10 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!--CDN stylesheets for bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
-    <link rel="stylesheet" href="css/custom.css">
+    
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="css/visual.css">
 </head>
 
 <body>
@@ -20,7 +23,7 @@
                     <button class="stylo btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Options
                     </button>
-                    <div class="jystyle dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="options dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <p class="attrb" >Year: <output id="yearValue" ></output><br />
                             <input id="yearSlider" type="range" min="120" max="220" value="160.0" oninput="yearSliderChange(this.value)" style="width: 180px">
                         </p>
@@ -36,11 +39,9 @@
                 <!--<div class="dropdown" id="projectionDropdown"></div>-->
                 <br>
                 <h4>Layers</h4> 
-                <div class="layersListSection">           
-                    <div class="list-group" id="layerList">
-                </div>
-                </div>
-                
+                <div class="layers-list-section">           
+                    <div class="list-group" id="layerList"></div>
+                </div>          
                 <br>
             </div>
         </div>
@@ -49,13 +50,12 @@
                 <canvas id="canvasOne">Your browser does not support HTML5 Canvas.</canvas>
             </div>
         </div>
-        <div class="countrySection">
+        <div class="country-section">
             <h4 class="countryTitle">Sinking Cities</h4>
-            <div class="countryListSection"> 
-                <ul id="countryDisplay"></ul>
+            <div class="country-list-section"> 
+                <ul id="country-display"></ul>
             </div>
-        </div>     
-       
+        </div>           
     </div>
 
     <!--jQuery-->

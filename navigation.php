@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="css/navbar.css">
+
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                     <a class="one nav-link" href="events.php">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="one nav-link" href="list_event.php">Advertise</a>
+                    <a class="one nav-link" href="advertise_event.php">Advertise</a>
                 </li>
             </ul>
         </div>

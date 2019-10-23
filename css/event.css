@@ -1,0 +1,136 @@
+/**Events**/
+@import url(https://fonts.googleapis.com/css?family=Lato:400,600,700);
+
+.event-card {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+  font-family: 'Lato', Arial, sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  max-width: 310px;
+  min-width: 250px;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  outline: 1px solid #D5DBDB !important;
+}
+
+.event-card * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.event-card img {
+  max-width: 100%;
+  vertical-align: top;
+  position: relative;
+}
+
+.event-card figcaption {
+  padding: 25px 20px 25px;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+.event-card figcaption:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #700877;
+  content: '';
+  background: -moz-linear-gradient(90deg, #3a258bc7 0%, #277dff 100%, #8f9dff 100%);
+  background: -webkit-linear-gradient(90deg,#3a258bc7 0%, #277dff 100%, #8f9dff 100%);
+  background: linear-gradient(90deg, #3a258bc7 0%, #277dff 100%, #8f9dff 100%);
+
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.event-card .date {
+  background-color: #fff;
+  border-radius: 50%;
+  color: #700877;
+  font-size: 18px;
+  font-weight: 700;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 10px 0;
+  position: absolute;
+  right: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  top: -25px;
+}
+
+.event-card .date span {
+  display: block;
+  line-height: 14px;
+}
+
+.event-card .date .month {
+  font-size: 11px;
+}
+
+.event-card h3,
+.event-card p {
+  margin: 0;
+  padding: 0;
+}
+
+.event-card h3 {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-bottom: 5px;
+}
+
+.event-card p {
+  font-size: 0.8em;
+  line-height: 1.6em;
+  margin-bottom: 0px;
+}
+
+.event-card a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.event-card:hover img,
+.event-card.hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.news-text{
+    text-align :center;
+    font-size: 2em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #061356c2;
+}
+
+.mns-img{
+
+    /* padding: 98px 91px; */
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 134px;
+
+}
+.landskap-img{
+    padding-bottom: 151px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+}

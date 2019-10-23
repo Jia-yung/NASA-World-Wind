@@ -1,0 +1,186 @@
+.leftDropdown {
+    position: absolute;
+    top:20px; 
+    left:20px; 
+    z-index:1;
+}
+
+.leftDropdown > h4 {
+    color: white;
+}
+
+.leftDropdown > p {
+    color: white;
+}
+
+.container-fluid {
+    padding: 0px;
+    height: 100%;
+}
+
+
+.countrySection {
+    padding: 0px;
+    position: absolute;
+    top:70px; 
+    right:10px; 
+    z-index:1;
+    color: white;
+
+}
+
+.country-list-section {
+    
+    width:300px;
+    overflow-y: auto;
+    height:650px !important;
+    z-index:1;
+}
+
+.layers-list-section {
+    overflow-y: auto;
+    height:500px;
+    z-index:1;
+}
+
+#country-display {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.country-list {
+    border: 1px solid white;
+    background-color: transparent ;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.country-list:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.country-list:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+#canvasOne {
+    z-index: 0;
+    height: auto;
+    display: block;
+    background-color: black !important;
+}
+
+.list-group-item {
+    background-color: transparent !important;
+    border: 1px solid white !important;
+}
+
+/**Options**/
+.stylo{
+    background-color:#28d8f5c7;
+    background: linear-gradient(45deg, #cbd444, #ff662c);
+    border-color:#fbff18b5;
+    width: 100%;
+    padding: 10px;
+}
+
+.stylo:hover{
+    background-color: #28d8f575;
+    border-color: #28d8f575;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #28d8f575;
+    border-color: #28d8f575;
+}
+
+.options{
+    background: linear-gradient(45deg, #ec2d19, #fcff2c);
+    padding: 5px 5px 5px;
+    width: 100%;
+}
+
+.attrb{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/***Home*/
+.leftDropdown {
+  position: absolute;
+  top:20px; 
+  left:20px; 
+  z-index:1;
+}
+
+.leftDropdown > h4 {
+  color: white;
+}
+
+.leftDropdown > p {
+  color: white;
+}
+
+.container-fluid {
+  padding: 0px;
+  height: 100%;
+}
+
+.country-section {
+  padding: 0px;
+  position: absolute;
+  top:70px; 
+  right:10px; 
+  z-index:1;
+  color: white;
+
+}
+
+.countryListSection {
+  width:300px;
+  overflow-y: auto;
+  height:550px;
+  z-index:1;
+}
+
+#countryDisplay {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.country-list {
+  border: 1px solid white;
+  background-color: transparent ;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.country-list:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.country-list:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+#canvasOne {
+  z-index: 0;
+  height: auto;
+  display: block;
+  background-color: black !important;
+}
+
+.list-group-item {
+  background-color: transparent !important;
+  border: 1px solid white !important;
+}

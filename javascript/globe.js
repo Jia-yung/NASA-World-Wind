@@ -85,8 +85,6 @@ requirejs(['./LayerManager'],
         floodBoundariesJakarta.push(new WorldWind.Position(-6.15-(tempValue/10000), 106.86, 100));
         floodBoundariesJakarta.push(new WorldWind.Position(-6.181932-(tempValue/10000), 106.801405, 100));
 
-        
-
         var floodBoundariesLouisiana = [];
         floodBoundariesLouisiana.push(new WorldWind.Position(30.022370, -90.198489, 100));
         floodBoundariesLouisiana.push(new WorldWind.Position(30.012858-(tempValue/10000), -90.198489-(tempValue/10000), 100));

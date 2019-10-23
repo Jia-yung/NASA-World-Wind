@@ -1,0 +1,78 @@
+/**Navbar**/
+
+.naverbar{
+    background: linear-gradient(90deg, #28d8f5c7 0%, #277dff 50%, #28d8f5c7 90%);
+}
+
+.stylers{
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    margin: auto;
+    text-transform: uppercase;
+
+}
+
+.fonter{
+    padding: 7px 7px;
+    font-size: 25px;
+    color: white;
+}
+
+
+  /**Stroke Effect**/
+/*CSS3 STROKE EFFECT*/
+#navbarNav ul li a,
+#navbarNav ul li a:after,
+#navbarNav ul li a:before {
+  transition: all .5s;
+}
+#navbarNav ul li a:hover {
+  color:#E34F25;
+}
+
+/* stroke */
+#navbarNav.stroke ul li a
+{
+  position: relative;
+}
+#navbarNav.stroke ul li a:after,
+#navbarNav ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: grey;
+  height: 1px;
+}
+#navbarNav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+#navbarNav ul li a {
+  transition: all 1s;
+}
+
+#navbarNav ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+#navbarNav ul li a:hover {
+  color: grey;
+  z-index: 1;
+}
+#navbarNav ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  opacity: 1;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
