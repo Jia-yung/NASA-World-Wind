@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/util.css">
 </head>
-
 <body>
     <?php include 'navigation.php';?>
   
@@ -32,17 +31,14 @@
 					<span class="l1-txt2 p-b-9 days">19</span>
 					<span class="s1-txt1 where1 p-l-35">Years</span>
 				</div>
-
 				<div class="wsize1 ">
 					<span class="l1-txt2 p-b-9 hours">23</span>
 					<span class="s1-txt1 where1 p-l-35">Hours</span>
 				</div>
-
 				<div class=" wsize1">
 					<span class="l1-txt2 p-b-9 minutes">59</span>
 					<span class="s1-txt1 where1 p-l-35">Minutes</span>
 				</div>
-
 				<div class="wsize1">
 					<span class="l1-txt2 p-b-9 seconds">59</span>
 					<span class="s1-txt1 where1 p-l-35">Seconds</span>
@@ -53,7 +49,7 @@
             </div>          
          </div>
     </div>
-    <section style="background-color: white; padding: 60px; padding-left: 80px; padding-right: 80px">
+    <section style="background-color: white">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -67,7 +63,7 @@
             </div>
         </div>
     </section>
-    <section style="background-color: #F2F3F4; padding: 60px; padding-left: 80px; padding-right: 80px">
+    <section style="background-color: #F2F3F4">
         <div class="container-fluid"> 
             <div class="row justify-content-center">
                 <div class="col-xs-12 text-center heading-section ftco-animate" style="margin-bottom: 40px">

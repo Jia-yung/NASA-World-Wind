@@ -78,7 +78,6 @@ input:focus ~ label, input.used ~ label {
 .bar:after { right: 50%; }
 
 /* active */
-
 input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
 
 /* Button */
@@ -104,10 +103,8 @@ input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
 }
 
 /* Button modifiers */
-
 .buttonBlue {
   background: #4a89dc;
-  text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
 }
 
 .buttonBlue:hover{ 

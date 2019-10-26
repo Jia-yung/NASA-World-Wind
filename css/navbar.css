@@ -1,5 +1,4 @@
 /**Navbar**/
-
 .naverbar{
     background: linear-gradient(90deg, #28d8f5c7 0%, #277dff 50%, #28d8f5c7 90%);
 }
@@ -10,7 +9,6 @@
     font-size: 18px;
     margin: auto;
     text-transform: uppercase;
-
 }
 
 .fonter{
@@ -19,8 +17,7 @@
     color: white;
 }
 
-
-  /**Stroke Effect**/
+/**Stroke Effect**/
 /*CSS3 STROKE EFFECT*/
 #navbarNav ul li a,
 #navbarNav ul li a:after,
@@ -63,10 +60,12 @@
   margin: 0;
   opacity: 0;
 }
+
 #navbarNav ul li a:hover {
   color: grey;
   z-index: 1;
 }
+
 #navbarNav ul li a:hover:after {
   z-index: -10;
   animation: fill 1s forwards;

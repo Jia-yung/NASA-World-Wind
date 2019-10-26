@@ -1,3 +1,11 @@
+#canvasOne {
+  z-index: 0;
+  height: auto;
+  display: block;
+  background-color: black !important;
+}
+
+/**layers**/
 .leftDropdown {
     position: absolute;
     top:20px; 
@@ -18,60 +26,10 @@
     height: 100%;
 }
 
-
-.countrySection {
-    padding: 0px;
-    position: absolute;
-    top:70px; 
-    right:10px; 
-    z-index:1;
-    color: white;
-
-}
-
-.country-list-section {
-    
-    width:300px;
-    overflow-y: auto;
-    height:650px !important;
-    z-index:1;
-}
-
 .layers-list-section {
     overflow-y: auto;
     height:500px;
     z-index:1;
-}
-
-#country-display {
-    list-style-type: none;
-    padding: 0px;
-}
-
-.country-list {
-    border: 1px solid white;
-    background-color: transparent ;
-    margin-bottom: 10px;
-    padding: 10px;
-    color: white;
-}
-
-.country-list:hover {
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-.country-list:active {
-    cursor: grabbing;
-    cursor: -moz-grabbing;
-    cursor: -webkit-grabbing;
-}
-
-#canvasOne {
-    z-index: 0;
-    height: auto;
-    display: block;
-    background-color: black !important;
 }
 
 .list-group-item {
@@ -111,7 +69,6 @@
     font-weight: 600;
 }
 
-/***Home*/
 .leftDropdown {
   position: absolute;
   top:20px; 
@@ -132,6 +89,12 @@
   height: 100%;
 }
 
+/**country-list**/
+#country-display {
+  list-style-type: none;
+  padding: 0px;
+}
+
 .country-section {
   padding: 0px;
   position: absolute;
@@ -139,7 +102,6 @@
   right:10px; 
   z-index:1;
   color: white;
-
 }
 
 .countryListSection {
@@ -173,14 +135,37 @@
   cursor: -webkit-grabbing;
 }
 
-#canvasOne {
-  z-index: 0;
-  height: auto;
-  display: block;
-  background-color: black !important;
+.countrySection {
+  padding: 0px;
+  position: absolute;
+  top:70px; 
+  right:10px; 
+  z-index:1;
+  color: white;
 }
 
-.list-group-item {
-  background-color: transparent !important;
-  border: 1px solid white !important;
+.country-list-section {   
+  width:300px;
+  overflow-y: auto;
+  height:650px !important;
+  z-index:1;
+}
+
+.country-list {
+  border: 1px solid white;
+  background-color: transparent ;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.country-list:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.country-list:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }

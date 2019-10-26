@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="country-section">
-            <h4 class="countryTitle">Sinking Cities</h4>
+            <h4 class="country-title">Sinking Cities</h4>
             <div class="country-list-section"> 
                 <ul id="country-display"></ul>
             </div>
