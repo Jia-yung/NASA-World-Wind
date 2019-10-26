@@ -28,12 +28,9 @@
 .cl0 {color: #fff;}
 
 
-
-
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
 .s1-txt1 {
-  font-family: Poppins-Regular;
   font-size: 12px;
   color: #fff;
   line-height: 1;
@@ -43,8 +40,7 @@
 /*//////////////////////////////////////////////////////////////////
 [ M-Text 16 - 25 ]*/
 .m1-txt1 {
-  font-family: Poppins-Regular;
-  font-size: 18px;
+  font-size: 12px;
   color: #555;
   line-height: 1.2;
   text-transform: uppercase;
@@ -55,7 +51,6 @@
 /*//////////////////////////////////////////////////////////////////
 [ L-Text >= 26 ]*/
 .l1-txt1 {
-  font-family: Impact;
   font-size: 90px;
   line-height: 2;
   color: rgba(216, 235, 247, 0.979);
@@ -64,7 +59,6 @@
 }
 
 .l1-txt2 {
-  font-family: Poppins-Black;
   font-size: 120px;
   line-height: 1;
   color: #fff;
@@ -204,7 +198,7 @@
 /*---------------------------------------------*/
 .how-social {
   color: #fff;
-  font-size: 18px;
+  font-size: 12px;
   border: 1px solid #fff;
   background-color: transparent;
   border-radius: 50%;
@@ -383,25 +377,17 @@ h2{
 }
 
 h3{
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 500;
-  font-family: fantasy;
   margin: 1.5rem;
   color: black;
 }
 
 p{
-  font-family:Tw Cen MT;
-  font-size:25px;
+  font-size:18px;
   margin: 1.5rem;
   color: #5D6164;
   display: block;
-}
-
-.padding{
-
-  padding-top: 25px;
-  padding-bottom: 15px;
 }
 
 img{
@@ -410,10 +396,9 @@ img{
 }
 
 blockquote {
-  font-family: Georgia, serif;
   font-size: 21px;
   font-style: italic;
-  width: 500px;
+  text-align: left !important;
   margin: 1.25em 0;
   padding: 0.35em 40px;
   line-height: 1.45;
@@ -431,9 +416,10 @@ blockquote:before {
   top: -20px;
   color: #7a7a7a;
 }
+
 blockquote:after{
   display: block;
-  padding-right: 10px;
+  padding-right: 30px;
   content: "\201D";
   font-size: 80px;
   position: absolute;
@@ -441,6 +427,7 @@ blockquote:after{
   bottom:-60px;
   color:  #7a7a7a;
 }
+
 blockquote cite {
   color: #999999;
   font-size: 14px;
@@ -452,22 +439,13 @@ blockquote cite:before {
   content: "\2014 \2009";
 }
 
-.mb-4{
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+.quote-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.vision {
-  font-family: Arial, Helvetica, sans-serif !important;
-}
 
-.mission {
-  font-family: Arial, Helvetica, sans-serif !important;
-}
-
-.vm {
-    border: 0px !important;
-}
 
 
 

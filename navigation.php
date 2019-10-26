@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/navbar.css">
 
 </head>
 
 <body>
     <nav class="naverbar navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">OceanRise</a>
+        <a class="navbar-brand" href="index.php" style="font-family: 'Satisfy';">OceanRise</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

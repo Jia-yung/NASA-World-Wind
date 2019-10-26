@@ -9,7 +9,7 @@ define(function () {
      */
     var LayerManager = function (worldWindow) {
         var thisExplorer = this;
-        var $countryList = $("#countryDisplay");
+        var $countryList = $("#country-display");
         this.wwd = worldWindow;
 
         this.roundGlobe = this.wwd.globe;

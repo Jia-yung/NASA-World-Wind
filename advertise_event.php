@@ -15,12 +15,12 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-12">
                 <h1 class="advertise-title">Advertise your event here !</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-8">          
+            <div class="col-12 col-md-12 col-lg-8">          
                 <form class="event-form">
                     <div class="sub-title">
                         <h3>Events Submission</h3>
@@ -50,7 +50,7 @@
                     </div>                 
                 </form>
             </div>
-            <div class="col-sm-4">
+            <div class="col-12 col-md-12 col-lg-4">
                 <form class="donation-form">
                     <div class="sub-title">
                         <h3>Donations</h3>
