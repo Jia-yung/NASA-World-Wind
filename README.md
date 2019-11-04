@@ -11,3 +11,9 @@ This web app aimes to effectively protect the earth from the global effects caus
 ## Link for project demo
 
 https://2019.spaceappschallenge.org/challenges/earths-oceans/rising-water/teams/rocketbunny/project
+
+## Built With
+
+* [Nasa Web World Wind](https://worldwind.arc.nasa.gov/web/) - The virtualisation tool used
+* [Bootstrap](https://getbootstrap.com/) - For styling the webapp
+* [jQuery](https://jquery.com) - Used to load data from NASA data set and display asynchronously
